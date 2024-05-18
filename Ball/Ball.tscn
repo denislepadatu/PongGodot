@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://br1n60e6cs2x5"]
+
+[ext_resource type="Script" path="res://Ball/Ball.gd" id="1_60xmo"]
+[ext_resource type="Texture2D" uid="uid://6bwlg3nff0yg" path="res://assets/ball.png" id="1_edflk"]
+[ext_resource type="AudioStream" uid="uid://bi5rfepbplrjt" path="res://assets/ping_pong_8bit_beeep.ogg" id="3_526k3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kgnib"]
+
+[node name="Ball" type="CharacterBody2D" groups=["BallGroup"]]
+position = Vector2(640, 360)
+scale = Vector2(2, 2)
+script = ExtResource("1_60xmo")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-07, 5.96046e-07)
+scale = Vector2(0.0666667, 0.0666667)
+texture = ExtResource("1_edflk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kgnib")
+
+[node name="CollisionSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_526k3")
